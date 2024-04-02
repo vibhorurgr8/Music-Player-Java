@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
@@ -82,7 +81,7 @@ public class Main {
         ListIterator<Song> listIterator = playList.listIterator();
 
 
-        if(playList.size() == 0){
+        if(playList.isEmpty()){
             System.out.println("This playlist have no song");
         }else {
             System.out.println("Now playing " + listIterator.next().toString());
@@ -125,7 +124,6 @@ public class Main {
                         System.out.println("Now playing "+listIterator.previous().toString());
                     }else {
                         System.out.println("This is the first song");
-                        forward = false;
                     }
                     break;
 
@@ -154,7 +152,7 @@ public class Main {
                     printMenu();
                     break;
                 case 6:
-                    if (playList.size() >0){
+                    if (!playList.isEmpty()){
                         listIterator.remove();
                         if(listIterator.hasNext()){
                             System.out.println("now playing "+listIterator.next().toString());
@@ -171,13 +169,14 @@ public class Main {
 
     private static void printMenu(){
         System.out.println("Available options\n press");
-        System.out.println("0 - to quit\n"+
-                "1 - to play next song\n"+
-                "2 - to play previous song\n"+
-                "3 - to replay the current song\n"+
-                "4 - list of all songs \n"+
-                "5 - print all available options\n"+
-                "6 - delete current song");
+        System.out.println("""
+                0 - to quit
+                1 - to play next song
+                2 - to play previous song
+                3 - to replay the current song
+                4 - list of all songs\s
+                5 - print all available options
+                6 - delete current song""");
     }
 
     private static void printList(LinkedList<Song> playList){

@@ -10,9 +10,6 @@ public class Song {
         this.duration = duration;
         this.albumName = albumName;
     }
-    public Song(){
-
-    }
 
     public String getTitle() {return title;}
 
